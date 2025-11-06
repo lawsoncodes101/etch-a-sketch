@@ -24,19 +24,19 @@
     cursor: pointer;
 }
 
-.red {
+#red {
     background: red;
 }
 
-.blue {
+#blue {
     background: blue;
 }
 
-.green {
+#green {
     background: green;
 }
 
-#gridSet {
+input {
     padding: 10px;
     border: 1px solid black;
     border-radius: 10px;
