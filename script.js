@@ -1,15 +1,19 @@
-const container = document.querySelector("#container");
+const grid = document.querySelector("#grid");
+let gridSize = 16;
 let elementsArray = [];
 
-for (let i = 1; i <= 16; i++) {
+for (let i = 1; i <= gridSize; i++) {
     let row = document.createElement("div");
     row.classList.add("row");
-    for (let j = 1; j <= 16; j++) {
+    for (let j = 1; j <= gridSize; j++) {
         let column = document.createElement("div");
-        column.textContent = `I'm column number ${j}`;
         column.classList.add("column");
+        column.addEventListener("mouseover", (e) => {
+            e.target.style.background = "red";
+        })
         row.append(column);
     }
     elementsArray.push(row);
 }
-container.append(...elementsArray);
+
+grid.append(...elementsArray);
