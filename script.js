@@ -1,16 +1,8 @@
 const grid = document.querySelector("#grid");
-const colors = document.querySelectorAll(".color");
 const setButton = document.querySelector("form > button");
 const input = document.querySelector("input");
-let gridColor = "red";
 let gridSize = 16;
 let elementsArray = [];
-
-colors.forEach((color) => {
-    color.addEventListener("click", () => {
-        gridColor = color.id;
-    });
-});
 
 setButton.addEventListener("click", (e) => {
     e.preventDefault();
@@ -34,8 +26,14 @@ function createGrid() {
         for (let j = 1; j <= gridSize; j++) {
             let column = document.createElement("div");
             column.classList.add("column");
+            column.style.opacity = 0;
             column.addEventListener("mouseover", (e) => {
-                e.target.style.background = `${gridColor}`;
+                let r = Math.floor(Math.random() * 256);
+                let g = Math.floor(Math.random() * 256);
+                let b = Math.floor(Math.random() * 256);
+                e.target.style.background = `rgb(${r}, ${g}, ${b})`;
+
+                column.style.opacity = parseFloat(window.getComputedStyle(column).opacity) + 0.1;
             });
             row.append(column);
         }

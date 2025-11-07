@@ -9,37 +9,18 @@
     height: 30px;
 }
 
-#controls {
-    margin: 20px auto;
+form {
     display: flex;
-    align-items: center;
     justify-content: center;
-}
-
-.color {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-#red {
-    background: red;
-}
-
-#blue {
-    background: blue;
-}
-
-#green {
-    background: green;
+    margin: 20px auto;
 }
 
 input {
     padding: 10px;
     border: 1px solid black;
     border-radius: 10px;
+    margin-right: 10px;
+    width: 25%;
 }
 
 form > button {
