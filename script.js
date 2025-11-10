@@ -26,14 +26,18 @@ function createGrid() {
         for (let j = 1; j <= gridSize; j++) {
             let column = document.createElement("div");
             column.classList.add("column");
-            column.style.opacity = 0;
+            column.style.opacity = 0.1;
             column.addEventListener("mouseover", (e) => {
                 let r = Math.floor(Math.random() * 256);
                 let g = Math.floor(Math.random() * 256);
                 let b = Math.floor(Math.random() * 256);
                 e.target.style.background = `rgb(${r}, ${g}, ${b})`;
 
-                column.style.opacity = parseFloat(window.getComputedStyle(column).opacity) + 0.1;
+                column.style.opacity =
+                    parseFloat(window.getComputedStyle(column).opacity) < 1
+                        ? parseFloat(window.getComputedStyle(column).opacity) +
+                          0.1
+                        : parseFloat(window.getComputedStyle(column).opacity);
             });
             row.append(column);
         }
